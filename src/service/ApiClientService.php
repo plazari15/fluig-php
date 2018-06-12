@@ -11,7 +11,7 @@ class ApiClientService
 {
     use HandlerDotenv;
 
-    public function get(String $endpoint){
+    public function get($endpoint){
         $response = new HandlerFluigResponse;
         $this->parseDotenv();
         $stack = new OauthService;

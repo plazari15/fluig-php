@@ -9,7 +9,7 @@ class Dataset
     public $listConstraints = null;
     public $order = null;
 
-    public function setName(String $n){
+    public function setName($n){
         $this->name = $n;
     }
 
@@ -17,11 +17,11 @@ class Dataset
         array_push($this->listFields, $field);
     }
 
-    public function addConstraint(Constraint $constraint){
+    public function addConstraint($constraint){
         array_push($this->listConstraints, $constraint);
     }
 
-    public function addOrder(String $order){
+    public function addOrder($order){
         array_push($this->order, $order);
     }
 }
