@@ -1,6 +1,6 @@
 <?php
 
-namespace AlissonPadua\PhpFluig\Service;
+namespace PedroLazari\PhpFluig\Service;
 
 use Symfony\Component\Dotenv\Dotenv;
 

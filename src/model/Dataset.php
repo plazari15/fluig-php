@@ -1,6 +1,6 @@
 <?php
 
-namespace AlissonPadua\PhpFluig\Model;
+namespace PedroLazari\PhpFluig\Model;
 
 class Dataset
 {

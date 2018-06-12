@@ -2,8 +2,8 @@
 
 require __DIR__. '/../vendor/autoload.php';
 
-$dataset = new \AlissonPadua\PhpFluig\Model\Dataset;
-$datasetService = new \AlissonPadua\PhpFluig\Service\DatasetService;
+$dataset = new \PedroLazari\PhpFluig\Model\Dataset;
+$datasetService = new \PedroLazari\PhpFluig\Service\DatasetService;
 
 $dataset->setName("colleague");
 

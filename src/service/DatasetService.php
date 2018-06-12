@@ -1,9 +1,9 @@
 <?php
 
-namespace AlissonPadua\PhpFluig\Service;
+namespace PedroLazari\PhpFluig\Service;
 
-use AlissonPadua\PhpFluig\Service\ApiClientService;
-use AlissonPadua\PhpFluig\Model\Dataset;
+use PedroLazari\PhpFluig\Service\ApiClientService;
+use PedroLazari\PhpFluig\Model\Dataset;
 
 class DatasetService
 {

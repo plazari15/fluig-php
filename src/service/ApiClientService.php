@@ -1,11 +1,11 @@
 <?php
 
-namespace AlissonPadua\PhpFluig\Service;
+namespace PedroLazari\PhpFluig\Service;
 
 use GuzzleHttp\Client;
-use AlissonPadua\PhpFluig\Service\OauthService;
-use AlissonPadua\PhpFluig\Service\HandlerFluigResponse;
-use AlissonPadua\PhpFluig\Model\Dataset;
+use PedroLazari\PhpFluig\Service\OauthService;
+use PedroLazari\PhpFluig\Service\HandlerFluigResponse;
+use PedroLazari\PhpFluig\Model\Dataset;
 
 class ApiClientService
 {

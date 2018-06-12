@@ -1,10 +1,10 @@
 <?php
 
-namespace AlissonPadua\PhpFluig\Service;
+namespace PedroLazari\PhpFluig\Service;
 
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
-use AlissonPadua\PhpFluig\Service\HandlerDotenv;
+use PedroLazari\PhpFluig\Service\HandlerDotenv;
 
 class OauthService
 {

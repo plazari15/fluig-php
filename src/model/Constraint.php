@@ -1,8 +1,8 @@
 <?php
 
-namespace AlissonPadua\PhpFluig\Model;
+namespace PedroLazari\PhpFluig\Model;
 
-use AlissonPadua\Model\ConstraintType;
+use PedroLazari\Model\ConstraintType;
 
 class Constraint
 {
