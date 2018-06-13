@@ -9,30 +9,13 @@ class Workflow
     public  $processInstanceId;
     public $stateSequence;
     public $threadSequence;
-    private $type;
+    public $observation;
 
-    public function __construct($field = '', $iniValue = '', $finValue = '', $typeName = ''){
-        $this->field = $field;
-        $this->initialValue = $iniValue;
-        $this->finalValue = $finValue;
-        $this->setType($typeName);
-    }
-
-    public function setType($typeName){
-        
-        switch($typeName){
-            case 'MUST':
-                $this->type = ConstraintType::$MUST;
-                break;
-            case 'SHOULD':
-                $this->type = ConstraintType::$SHOULD;
-                break;
-            case 'MUST_NOT':
-                $this->type = ConstraintType::$MUST_NOT;
-                break;
-            default:
-                $this->type = ConstraintType::$MUST;
-        }
+    public function __construct($processInstance = '', $stateSequence = '', $threadSequence = '', $observation = ''){
+        $this->processInstanceId = $processInstance;
+        $this->stateSequence = $stateSequence;
+        $this->threadSequence = $threadSequence;
+        $this->observation = $observation;
     }
 
 }
