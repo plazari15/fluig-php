@@ -47,10 +47,10 @@ class ApiClientService
             $stack = new OauthService;
 	    	$client = new Client([
 	    		'base_url' => getenv('FLUIG_URI'),
-	    		'auth' => 'oauth'
+                'defaults' => ['auth' => 'oauth']
 			]);
 
-	    	$client->getEmitter()->attach($stack->getApiAuth());
+	    	$client->getEmitter()->attach($stack->getApiAuthPost());
 
 	        $res = $client->post($endpoint, ['json' => $data]);
 
