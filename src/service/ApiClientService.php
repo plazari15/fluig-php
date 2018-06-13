@@ -11,18 +11,25 @@ class ApiClientService
 {
     use HandlerDotenv;
 
+    public function __construct()
+    {
+        $this->parseDotenv();
+    }
+
     public function get($endpoint){
         $response = new HandlerFluigResponse;
-        $this->parseDotenv();
+
         $stack = new OauthService;
-        
+
 		try{
 	    	$client = new Client([
-	    		'base_uri' => getenv('FLUIG_URI') . ':' . getenv('FLUIG_PORT'),
-	    		'handler' => $stack->getApiAuth()
+	    		'base_url' => getenv('FLUIG_URI'),
+                'defaults' => ['auth' => 'oauth']
 	    	]);
-	 
-	    	$res = $client->get($endpoint, ['auth' => 'oauth']);
+
+	    	$client->getEmitter()->attach($stack->getApiAuth());
+
+	    	$res = $client->get($endpoint);
             return $response->parseResponse($res);
 
         }catch(Exception $e){
@@ -33,17 +40,17 @@ class ApiClientService
 		
 	public function post($endpoint, $data){
 		$response = new HandlerFluigResponse;
-        $this->parseDotenv();
 
         $res = null;
 		try{
 
             $stack = new OauthService;
 	    	$client = new Client([
-	    		'base_uri' => getenv('FLUIG_URI') . ':' . getenv('FLUIG_PORT'),
-	    		'handler' => $stack->getApiAuth(),
+	    		'base_url' => getenv('FLUIG_URI'),
 	    		'auth' => 'oauth'
 			]);
+
+	    	$client->getEmitter()->attach($stack->getApiAuth());
 
 	        $res = $client->post($endpoint, ['json' => $data]);
 

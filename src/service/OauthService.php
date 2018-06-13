@@ -8,15 +8,13 @@ use PedroLazari\PhpFluig\Service\HandlerDotenv;
 
 class OauthService
 {
-    private $stack = null;
     use HandlerDotenv;
     
     public function getApiAuth(){
         
         $this->parseDotenv();
 
-        try{
-			$this->stack = HandlerStack::create();
+        //try{
 	   		$middleware = new Oauth1([
 	    		'consumer_key'    => getenv('FLUIG_CONSUMER_KEY'),
 	    		'consumer_secret' => getenv('FLUIG_CONSUMER_SECRET'),
@@ -24,13 +22,13 @@ class OauthService
 	    		'token_secret'    => getenv('FLUIG_TOKEN_SECRET')
 	    	]);
 
-	    	$this->stack->push($middleware);
+//	    	return $middleware;
+//
+//		}catch(Exception $e){
+//			return $e->getMessage();
+//		}
 
-		}catch(Exception $e){
-			return $e->getMessage();
-		}
-
-		return $this->stack;
+		return $middleware;
     }
 
 }
