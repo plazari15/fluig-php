@@ -9,12 +9,6 @@ use PedroLazari\PhpFluig\Model\Dataset;
 
 class ApiClientService
 {
-    use HandlerDotenv;
-
-    public function __construct()
-    {
-        $this->parseDotenv();
-    }
 
     public function get($endpoint){
         $response = new HandlerFluigResponse;
@@ -23,7 +17,7 @@ class ApiClientService
 
 		try{
 	    	$client = new Client([
-	    		'base_url' => getenv('FLUIG_URI'),
+	    		'base_url' => $_ENV['FLUIGPHP.FLUIG_URI'],
                 'defaults' => ['auth' => 'oauth']
 	    	]);
 
@@ -46,7 +40,7 @@ class ApiClientService
 
             $stack = new OauthService;
 	    	$client = new Client([
-	    		'base_url' => getenv('FLUIG_URI'),
+	    		'base_url' => $_ENV['FLUIGPHP.FLUIG_URI'],
                 'defaults' => ['auth' => 'oauth']
 			]);
 
