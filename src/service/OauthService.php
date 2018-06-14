@@ -4,11 +4,9 @@ namespace PedroLazari\PhpFluig\Service;
 
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
-use PedroLazari\PhpFluig\Service\HandlerDotenv;
 
 class OauthService
 {
-    use HandlerDotenv;
     
     public function getApiAuth(){
         
@@ -16,10 +14,10 @@ class OauthService
 
         //try{
 	   		$middleware = new Oauth1([
-	    		'consumer_key'    => getenv('FLUIG_CONSUMER_KEY'),
-	    		'consumer_secret' => getenv('FLUIG_CONSUMER_SECRET'),
-	    		'token'           => getenv('FLUIG_ACCESS_TOKEN'),
-	    		'token_secret'    => getenv('FLUIG_TOKEN_SECRET')
+	    		'consumer_key'    => $_ENV('FLUIGPHP.FLUIG_CONSUMER_KEY'),
+	    		'consumer_secret' => $_ENV('FLUIGPHP.FLUIG_CONSUMER_SECRET'),
+	    		'token'           => $_ENV('FLUIGPHP.FLUIG_ACCESS_TOKEN'),
+	    		'token_secret'    => $_ENV('FLUIGPHP.FLUIG_TOKEN_SECRET')
 	    	]);
 
 //	    	return $middleware;
@@ -37,10 +35,10 @@ class OauthService
 
         //try{
         $middleware = new Oauth1([
-            'consumer_key'    => getenv('FLUIG_CONSUMER_KEY_POST'),
-            'consumer_secret' => getenv('FLUIG_CONSUMER_SECRET_POST'),
-            'token'           => getenv('FLUIG_ACCESS_TOKEN_POST'),
-            'token_secret'    => getenv('FLUIG_TOKEN_SECRET_POST')
+            'consumer_key'    => $_ENV('FLUIGPHP.FLUIG_CONSUMER_KEY_POST'),
+            'consumer_secret' => $_ENV('FLUIGPHP.FLUIG_CONSUMER_SECRET_POST'),
+            'token'           => $_ENV('FLUIGPHP.FLUIG_ACCESS_TOKEN_POST'),
+            'token_secret'    => $_ENV('FLUIGPHP.FLUIG_TOKEN_SECRET_POST')
         ]);
 
 //	    	return $middleware;
